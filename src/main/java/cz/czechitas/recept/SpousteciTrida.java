@@ -49,7 +49,85 @@ public class SpousteciTrida {
     // Pouzivejte napovidani v editoru.
     // Vyskakuje samo nebo pomoci Ctrl+Mezernik
 
-    cervenaMiska.nalozSiJedenKus(vajicka);
+
+
+                          //////////////////// Postup //////////////////////
+
+                        /* ------> 4 vajíčka (máme plato 10 vajíček) <------ */
+    /* ------> Miska si 4x vloží vajíčko <------ */
+    for(int i = 0; i < 4; i++) {
+      cervenaMiska.nalozSiJedenKus(vajicka);
+    }
+                       /* ------> 1. Smíchej vajíčko a cukr <------ */
+    /* ------> Miska si přidá cukr <------ */
+    cervenaMiska.nalozSiCelyObsah(pytlikCukru);
+    /* ------> Mixér to zamíchá <------ */
+    mixer.zamichej(cervenaMiska);
+
+                    /* ------> 2. Přidejte máslo a dobře zamíchejte <------ */
+   /* ------> Miska si přidá máslo, Mixér to znovu zamíchá <------ */
+    cervenaMiska.nalozSiCelyObsah(maslo125g);
+    mixer.zamichej(cervenaMiska);
+
+                  /* ------> 3. Přisypte 250 g mouky (pozor, pytlík mouky má 1 kg) <------ */
+
+    /* ------> Druhá miska si odváží 250g mouky <------ */
+    kuchynskaVaha.vynulujSeS(zlutaMiska);
+
+    while (kuchynskaVaha.zjistiHmotnost(zlutaMiska) != 250) {
+      if (kuchynskaVaha.zjistiHmotnost(zlutaMiska) > 250) {
+        zlutaMiska.vylozSiTrochu();
+      } else {
+        zlutaMiska.nalozSiTrochu(pytlikMouky);
+      }
+    }
+     /* ------> První miska si mouku přebere <------ */
+    cervenaMiska.nalozSiObsahJineMisky(zlutaMiska);
+
+                       /* ------> 4. Nakonec do těsta přidejte prášek do pečiva <------ */
+
+    /* ------>  První miska si vezme prášek do pečiva, Mixér to zamíchá <------ */
+    cervenaMiska.nalozSiCelyObsah(prasekDoPeciva);
+    mixer.zamichej(cervenaMiska);
+
+                      /* ------> 5. Před vložením do trouby posypte kousky ovoce <------ */
+
+    /* ------>  Plech si přebere těsto z misky <------ */
+    plech.preberSiObsah(cervenaMiska);
+
+    /* ------>  Plech se 50x opakovaně posype kousky ovoce <------ */
+    for (int i = 0; i < 50; i = i + 1) {
+      plech.posypSeKusem(ovoce);
+    }
+
+                     /* ------> 6. Vložte do předehřáté trouby a pečte 25 minut na 180 stupňů <------ */
+
+    /* ------> Trouba se zapne a třeba 5 minut bude péct naprázdno <------ */
+    trouba.zapniSe(180);
+    trouba.nechejPect(5);
+    /* ------>  Trouba si vloží plech <------ */
+    trouba.vlozSiDovnitr(plech);
+    /* ------> Trouba ho bude péct 25 minut  <------ */
+    trouba.nechejPect(25);
+    /* ------> Trouba se zastaví  <------ */
+    trouba.vypniSe();
+    /* ------> Trouba vyndá obsah ven a je hotovo  <------ */
+    trouba.vyndejObsahVen();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   }
 
 }
